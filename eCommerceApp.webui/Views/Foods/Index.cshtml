@@ -1,0 +1,16 @@
+@model FoodViewModel
+
+@section Countries
+{
+  @await Component.InvokeAsync("Countries")
+}
+
+@if (Model.Foods.Count == 0)
+{
+  @await Html.PartialAsync("_noproduct")
+}
+
+@foreach (var food in Model.Foods)
+{
+  @await Html.PartialAsync("_foodlist", food)
+}

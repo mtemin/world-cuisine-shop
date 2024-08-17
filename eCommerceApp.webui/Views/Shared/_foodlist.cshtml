@@ -1,0 +1,25 @@
+@model Food
+<div class="card">
+  @* <a href="/foods/@Model.FoodId"> *@
+  <a asp-controller="Foods" asp-action="Details" asp-route-id="@Model.FoodId">
+    <div class="card-header">
+      <p class="card-header-title">@Model.Name</p>
+    </div>
+    <div class="card-image image is-square">
+      <img style="object-fit: cover;" src="~/img/@Model.ImgSrc" alt="" srcset="">
+    </div>
+    @* <div class="card-content columns is-justify-content-space-between"> *@
+
+    <button class="button is-danger is-small column">
+      <a href="/foods/@Model.FoodId" class="has-text-black">
+        Delete
+      </a>
+    </button>
+
+    @* </div> *@
+    <div class="card-footer">
+      <p>@Model.Description</p>
+      <p class="m-2 ml-auto">@Model.Price @Model.MoneyUnit</p>
+    </div>
+  </a>
+</div>

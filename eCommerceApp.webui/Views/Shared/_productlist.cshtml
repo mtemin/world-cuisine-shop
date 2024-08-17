@@ -1,0 +1,20 @@
+@model Product
+
+<div class="card">
+  <div class="card-header">
+    <p class="card-header-title">@Model.Name</p>
+  </div>
+  <div class="card-image">
+    @* <img src="~/img/gyudon.jpg" alt="" srcset=""> *@
+    <img src="https://istanbulticaretgazetesi.com/front/uploads/blog/thumbnail/1679000400QCCmj3WpMDshHwQ.webp" alt=""
+      srcset="">
+  </div>
+  <div class="card-content">
+    <p>@Model.Description</p>
+  </div>
+  <div class="card-footer">
+    <p class="card-footer-item">
+    <p class="m-2">@Model.Price ₺</p>
+    </p>
+  </div>
+</div>

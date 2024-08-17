@@ -1,0 +1,14 @@
+@model List<Country>
+
+<aside class="menu">
+  <p class="menu-label">Countries</p>
+  <ul class="menu-list">
+    <li><a class="@(ViewBag.SelectedCountry == null ? "is-active" : "")" href="/foods">All</a></li>
+    @foreach (var country in Model)
+    {
+      @* <li><a class="test" asp-controller="foods" asp-route-country="@country.Name">@country.Name</a></li> *@
+      <li><a class="@(ViewBag.SelectedCountry == country.Name ? "is-active" : "")"
+          href="/foods/by-country/@country.Name">@country.Name</a></li>
+    }
+  </ul>
+</aside>

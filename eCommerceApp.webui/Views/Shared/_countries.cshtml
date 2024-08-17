@@ -1,0 +1,13 @@
+@model List<Country>
+
+<aside class="menu">
+  <p class="menu-label">Filter by countries</p>
+  <ul class="menu-list">
+    @foreach (var country in Model)
+    {
+      <li><a class="test" asp-controller="Food" asp-action="Index" asp-route-id="@country.Name">@country.Name</a></li>
+      @* <li><a class="" href="@country.Name">@country.Name</a></li> *@
+      @* <li><a class="is-active">@country.Name</a></li> *@
+    }
+  </ul>
+</aside>
