@@ -1,0 +1,126 @@
+@model Food
+
+<form asp-controller="Foods" asp-action="Edit" asp-route-id="@Model?.FoodId" method="POST" class="form-horizontal">
+  <fieldset>
+    <!-- Form Name -->
+    <legend>Edit food</legend>
+
+    <!-- Text input-->
+    <div class="field">
+      <label class="label" for="foodId">Food ID</label>
+      <div class="control">
+        <input asp-for="FoodId" value="@Model.FoodId" class="input ">
+
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="field">
+      <label class="label" for="Name">Food Name</label>
+      <div class="control">
+        <input asp-for="Name" placeholder="placeholder" value="@Model.Name" class="input ">
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="field">
+      <label class="label" for="foodDescription">Description</label>
+      <div class="control">
+        <input asp-for="Description" value="@Model.Description" type="text"
+          placeholder="Enter a description for food..." class="input ">
+        <p class="help">Optional</p>
+      </div>
+    </div>
+
+    <!-- Select Basic -->
+    <div class="field">
+      <label class="label" for="foodOrigin">What is the food origin?</label>
+      <div class="control">
+        <div class="select">
+          <select asp-for="Country" asp-items="@ViewBag.Countries" class="">
+            <option selected disabled>Select a country...</option>
+            @* <option>Turkiye</option>
+            <option>Finland</option>
+            <option>Japan</option> *@
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="field">
+      <label class="label" for="foodPrice">Food Price</label>
+      <div class="control">
+        <input asp-for="Price" value="@Model.Price" placeholder="Food price..." class="input ">
+
+      </div>
+    </div>
+
+    <!-- Multiple Radios (inline) -->
+    <div class="field">
+      <label class="label" for="">Inline Radios</label>
+      <div class="control">
+        <label class="radio inline mr-3" for="foodPriceUnit-2">
+          <input type="radio" value="₺">
+          ₺
+        </label>
+        <label class="radio inline mr-3" for="foodPriceUnit-0">
+          <input type="radio" value="€" checked="checked">
+          €
+        </label>
+        <label class="radio inline mr-3" for="foodPriceUnit-1">
+          <input type="radio" value="¥">
+          ¥
+        </label>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="field">
+      <label class="label" for="foodImageSrc">Food Image Source</label>
+      <div class="control">
+        <input asp-for="ImgSrc" value="@Model.ImgSrc" type="text" placeholder="Link for food image" class="input ">
+
+      </div>
+    </div>
+
+    <!-- File Button -->
+
+    @* <label class="label" for="foodImageUpload">Upload an image...</label>
+    <div class="file">
+    <label class="file-label">
+    <input class="file-input" type="file" name="foodImageUpload"
+    onchange="if (this.files.length > 0) document.getElementById('filename-foodImageUpload').innerHTML =
+    this.files[0].name;">
+    <span class="file-cta">
+    <span class="file-icon">
+    <i class="fa fa-upload"></i>
+    </span>
+    <span class="file-label" id="filename-foodImageUpload">
+    Choose a file…
+    </span>
+    </span>
+    </label>
+    </div> *@
+
+    <!-- Select Basic -->
+    <div class="field">
+      <label class="label" for="foodIsAvailable">Is Available?</label>
+      <div class="control">
+        <div class="select">
+          <select asp-for="IsAvailable" value="@Model.IsAvailable" class="">
+            <option selected disabled>Is on sale?</option>
+            <option value="true">On Sale</option>
+            <option value="false">Not in stock...</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      @* <div class="control"> *@
+      <button type="submit" class="button is-primary ml-auto is-dark">Submit</button>
+      @* </div> *@
+    </div>
+
+  </fieldset>
+</form>
