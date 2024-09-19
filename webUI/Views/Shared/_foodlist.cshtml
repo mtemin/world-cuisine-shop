@@ -14,7 +14,7 @@
       <p style="max-width:250px;text-overflow: ellipsis;white-space: nowrap; overflow: hidden;" class="mb-4 ">
         @Model.Description
       </p>
-      <p class="is-size-5 has-text-weight-bold mb-5">@Model.Price @Model.MoneyUnit</p>
+      <p class="is-size-5 has-text-weight-bold mb-5">@Model.Price moneyunit?</p>
       <form method="POST" asp-controller="foods" asp-action="Delete" asp-route-id="@Model.FoodId">
         <input type="hidden" name="FoodId" value="@Model.FoodId">
         <button type="submit" class="button is-danger">Delete</button>
