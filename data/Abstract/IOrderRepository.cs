@@ -6,8 +6,8 @@ using entity.Model;
 
 namespace data.Abstract
 {
-    public interface ICountryRepository:IRepository<Country>
+    public interface IOrderRepository:IRepository<Order>
     {
-        List<Country> GetPopularCountries();
+        
     }
 }

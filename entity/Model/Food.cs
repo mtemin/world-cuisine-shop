@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace entity.Model
 {
-public class Food
+    public class Food
     {
         public int FoodId { get; set; }
         public string Name { get; set; }
@@ -15,7 +15,7 @@ public class Food
         public string ImgSrc { get; set; }
         public string Country { get; set; }
         public bool IsAvailable { get; set; }
-        public List<FoodCountry> FoodCountry{ get; set; }
+        public FoodCountry FoodCountry { get; set; }
 
     }
 }

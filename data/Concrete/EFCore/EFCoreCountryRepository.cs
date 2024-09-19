@@ -5,13 +5,15 @@ using System.Threading.Tasks;
 using data.Abstract;
 using entity.Model;
 
-namespace data.Concrete.SQL
+namespace data.Concrete.EFCore
 {
-    public class SQLFoodRepository : IFoodRepository
+    public class EFCoreCountryRepository : ICountryRepository
     {
-        public void Create(Food entity)
+        private WorldCuisineShopContext db = new WorldCuisineShopContext();
+        public void Create(Country entity)
         {
-            throw new NotImplementedException();
+            db.Countries.Add(entity);
+            db.SaveChanges();            
         }
 
         public void Delete(int id)
@@ -19,22 +21,22 @@ namespace data.Concrete.SQL
             throw new NotImplementedException();
         }
 
-        public List<Food> GetAll()
+        public List<Country> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Food GetById(int id)
+        public Country GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Food> GetPopularFoodList()
+        public List<Country> GetPopularCountries()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Food entity)
+        public void Update(Country entity)
         {
             throw new NotImplementedException();
         }

@@ -6,13 +6,9 @@ using entity.Model;
 
 namespace data.Abstract
 {
-    public interface IFoodRepository
+    public interface IFoodRepository:IRepository<Food>
     {
-        Food GetById(int id);
-        List<Food> GetAll();
-        void Create(Food entity);
-        void Update(Food entity);
-        void Delete(int id);
+        List<Food> GetPopularFoodList();
 
     }
 }

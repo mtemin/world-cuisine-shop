@@ -29,6 +29,11 @@ namespace data.Concrete.SQL
             throw new NotImplementedException();
         }
 
+        public List<Country> GetPopularCountries()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Country entity)
         {
             throw new NotImplementedException();
