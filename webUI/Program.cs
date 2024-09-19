@@ -10,10 +10,14 @@ var configuration = builder.Configuration;
 
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<WorldCuisineShopContext>(options =>
-{
-  options.UseNpgsql(configuration.GetConnectionString("worldCuisine"));
-});
+
+builder.Services.AddDbContext<WorldCuisineShopContext>(
+//   options =>
+// {
+//   options.UseNpgsql(configuration.GetConnectionString("worldCuisine"));
+// }
+);
+
 builder.Services.AddScoped<IFoodRepository, EFCoreFoodRepository>();
 
 var app = builder.Build();
@@ -35,9 +39,9 @@ app.MapRazorPages();
 app.UseEndpoints(endpoints =>
 {
   endpoints.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action}/{id?}"
-  );
+  name: "default",
+  pattern: "{controller}/{action}/{id?}"
+);
 });
 
 app.Run();
