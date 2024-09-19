@@ -4,23 +4,24 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using webUI.Data;
-using webUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using entity.Model;
 
 namespace webUI.Controllers
 {
-    public class FoodsController:Controller
+    public class FoodsController : Controller
     {
         [Route("foods")]
         public IActionResult Index(string? q)
         {
 
-            var foodViewModel = new FoodViewModel(){
+            var foodViewModel = new FoodViewModel()
+            {
                 Foods = FoodRepository.Foods,
             };
 
-            if(!string.IsNullOrEmpty(q))
+            if (!string.IsNullOrEmpty(q))
             {
                 foodViewModel.Foods = foodViewModel.Foods.Where(x => x.Name.ToLower().Contains(q.ToLower())).ToList();
             }
@@ -38,26 +39,27 @@ namespace webUI.Controllers
         [Route("foods/by-country/{country}")]
         public IActionResult FilterByCountry([RegularExpression(@"\p{L}+")] string country)
         {
-            if(country !=null)
+            if (country != null)
             {
-            ViewBag.SelectedCountry = country; 
-            var foodViewModel = new FoodViewModel(){
-                Foods = FoodRepository.GetFoodByCountry(country),
-                SelectedCountry = country
-            };
+                ViewBag.SelectedCountry = country;
+                var foodViewModel = new FoodViewModel()
+                {
+                    Foods = FoodRepository.GetFoodByCountry(country),
+                    SelectedCountry = country
+                };
 
-            return View(foodViewModel);
+                return View(foodViewModel);
             }
             else
             {
-            return View();
+                return View();
             }
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Countries = new SelectList(CountryRepository.GetCountries(),"CountryId","Name");
+            ViewBag.Countries = new SelectList(CountryRepository.GetCountries(), "CountryId", "Name");
 
             return View();
         }
@@ -68,7 +70,7 @@ namespace webUI.Controllers
             FoodRepository.AddFood(food);
             return RedirectToAction("Index");
         }
-        
+
         [HttpGet]
         [Route("foods/edit/{id}")]
         public IActionResult Edit(int id)

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using webUI.Models;
+using entity.Model;
 
 namespace webUI.Data
 {

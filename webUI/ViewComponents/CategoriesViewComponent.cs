@@ -2,21 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using webUI.Models;
+using entity.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace webUI.ViewComponents
 {
-    public class CountriesViewComponent:ViewComponent
+    public class CountriesViewComponent : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
-            
+
             var countries = new List<Country>()
             {
-                new Country{Name = "Türkiye", Description = "anadolu"},
-                new Country{Name = "Finland", Description = "soğuk"},
-                new Country{Name = "Japan", Description = "okyanusta ada"},
+                new Country{Name = "Türkiye"},
+                new Country{Name = "Finland"},
+                new Country{Name = "Japan"},
             };
             return View(countries);
 
