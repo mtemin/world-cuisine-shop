@@ -5,16 +5,17 @@ using System.Threading.Tasks;
 using webUI.Data;
 using Microsoft.AspNetCore.Mvc;
 using data.Abstract;
+using business.Concrete;
 
 namespace webUI.Controllers
 {
     public class HomeController : Controller
     {
-        private IFoodRepository _foodRepository;
+        private IFoodService _foodService;
 
-        public HomeController(IFoodRepository foodRepository)
+        public HomeController(IFoodService foodService)
         {
-            this._foodRepository = foodRepository;
+            this._foodService = foodService;
         }
         public IActionResult Index()
         {
@@ -25,7 +26,7 @@ namespace webUI.Controllers
             ViewBag.UserName = "Mehmet Emin";
             var foodViewModel = new FoodViewModel()
             {
-                Foods = FoodRepository.Foods
+                Foods = _foodService.GetAll()
             };
 
             return View(foodViewModel);
