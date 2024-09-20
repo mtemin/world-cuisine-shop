@@ -1,3 +1,4 @@
+using business.Concrete;
 using data.Abstract;
 using data.Concrete.EFCore;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,7 @@ builder.Services.AddDbContext<WorldCuisineShopContext>(
 );
 
 builder.Services.AddScoped<IFoodRepository, EFCoreFoodRepository>();
+builder.Services.AddScoped<IFoodService, FoodManager>();
 
 var app = builder.Build();
 

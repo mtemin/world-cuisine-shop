@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\data\data.csproj" />
+    <ProjectReference Include="..\entity\entity.csproj" />
+    <ProjectReference Include="..\business\business.csproj" />
   </ItemGroup>
 
   <ItemGroup>
