@@ -7,11 +7,19 @@ using webUI.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using entity.Model;
+using business.Concrete;
 
 namespace webUI.Controllers
 {
     public class FoodsController : Controller
     {
+        private IFoodService _foodService;
+
+        public FoodsController(IFoodService foodService)
+        {
+            this._foodService = foodService;
+        }
+
         [Route("foods")]
         public IActionResult Index(string? q)
         {

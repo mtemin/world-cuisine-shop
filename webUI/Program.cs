@@ -1,5 +1,6 @@
 using business.Concrete;
 using data.Abstract;
+using data.Concrete;
 using data.Concrete.EFCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
@@ -22,7 +23,16 @@ builder.Services.AddDbContext<WorldCuisineShopContext>(
 builder.Services.AddScoped<IFoodRepository, EFCoreFoodRepository>();
 builder.Services.AddScoped<IFoodService, FoodManager>();
 
+SeedDatabase.Seed();
+
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+  // Development-specific configuration
+  SeedDatabase.Seed();
+  app.UseDeveloperExceptionPage();
+}
 
 // app.MapGet("/", () => "Hello World!");
 
