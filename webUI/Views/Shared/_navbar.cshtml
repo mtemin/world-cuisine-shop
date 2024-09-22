@@ -22,24 +22,23 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="/">
+      <a asp-controller="Home" asp-action="Index" class="navbar-item">
         Home
       </a>
-
-      <a class="navbar-item" href="/foods">
+      <a asp-controller="Foods" asp-action="Index" class="navbar-item">
         Foods
       </a>
-
       <a class="navbar-item" href="/about">
         About
       </a>
-
       <a class="navbar-item" href="/contact">
         Contact
       </a>
-
-      <a class="navbar-item" href="/foods/create">
-        Add New Food
+      <a asp-controller="admin" asp-action="createfood" class="navbar-item">
+        Create food
+      </a>
+      <a asp-controller="admin" asp-action="productlist" class="navbar-item">
+        List foods
       </a>
       @* <div class="navbar-item has-dropdown is-hoverable">
       <a class="navbar-link">
