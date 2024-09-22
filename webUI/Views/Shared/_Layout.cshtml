@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>product index</title>
+  <title>World Cuisine</title>
   @* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"> *@
   <link rel="stylesheet" href="/modules/bulma/css/bulma.min.css">
   <link rel="stylesheet" href="~/css/style.css">
@@ -12,47 +12,27 @@
 
 <body>
 
-  @if (IsSectionDefined("MessageBox"))
+  @* @if (IsSectionDefined("MessageBox"))
   {
-    @RenderSection("MessageBox", false)
+  @RenderSection("MessageBox", false)
   }
   else
   {
-    <div class="notification is-success mehmet-test">
-      Welcome
-    </div>
-  }
+  <div class="notification is-success mehmet-test">
+  Welcome
+  </div>
+  } *@
 
   @await Html.PartialAsync("_navbar")
 
 
   <section class="section container">
 
-    @if (IsSectionDefined("Countries"))
-    {
-      <div class="columns">
-        <div class="column is-one-quarter">
-          @RenderSection("Countries", false)
-        </div>
-        <div class="column is-three-quarters">
-          @await Html.PartialAsync("_searchfood")
-          <div class="fixed-grid has-3-cols">
-            <div class="grid">
-              @RenderBody()
-            </div>
-          </div>
-        </div>
+    <div class="columns">
+      <div class="column is-full">
+        @RenderBody()
       </div>
-    }
-    else
-    {
-      <div class="columns">
-        <div class="column is-full">
-          @RenderBody()
-        </div>
-      </div>
-    }
-
+    </div>
   </section>
   @RenderSection("Footer", false)
 
