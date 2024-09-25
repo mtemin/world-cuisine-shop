@@ -97,6 +97,7 @@ namespace webUI.Controllers
         [Route("foods/edit/{id}")]
         public IActionResult Edit(Food food)
         {
+            // Food modelden moneyUnit i sil ve country e göre otomatik al
             try
             {
                 FoodRepository.EditFood(food);
