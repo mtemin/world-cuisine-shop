@@ -9,8 +9,9 @@
 {
   @await Html.PartialAsync("_noproduct")
 }
-
-@foreach (var food in Model.Foods)
-{
-  @await Html.PartialAsync("_foodlist", food)
-}
+<div class="columns is-multiline">
+  @foreach (var food in Model.Foods)
+  {
+    @await Html.PartialAsync("_foodlist", food)
+  }
+</div>

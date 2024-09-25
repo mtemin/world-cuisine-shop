@@ -12,26 +12,25 @@
 
 <body>
 
-  @* @if (IsSectionDefined("MessageBox"))
-  {
-  @RenderSection("MessageBox", false)
-  }
-  else
-  {
-  <div class="notification is-success mehmet-test">
-  Welcome
-  </div>
-  } *@
-
   @await Html.PartialAsync("_navbar")
 
-
   <section class="section container">
-
     <div class="columns">
-      <div class="column is-full">
-        @RenderBody()
-      </div>
+      @if (IsSectionDefined("Countries"))
+      {
+        <div class="column is-3">
+          @RenderSection("Countries", false)
+        </div>
+        <div class="column is-9">
+          @RenderBody()
+        </div>
+      }
+      else
+      {
+        <div class="column is-full">
+          @RenderBody()
+        </div>
+      }
     </div>
   </section>
   @RenderSection("Footer", false)

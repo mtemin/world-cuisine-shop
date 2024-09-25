@@ -18,14 +18,12 @@ You have a message!
 }
 
 
-<div class="fixed-grid has-5-cols">
-  <div class="grid mt-6">
+<div class="columns mt-6 is-multiline is-8">
 
-    @foreach (var food in Model.Foods)
-    {
-      @await Html.PartialAsync("_foodlist", food)
-    }
-  </div>
+  @foreach (var food in Model.Foods)
+  {
+    @await Html.PartialAsync("_foodlist", food)
+  }
 </div>
 
 
@@ -34,11 +32,8 @@ You have a message!
   <footer class="footer">
     <div class="content has-text-centered">
       <p>
-        <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>.
-        The source code is licensed
-        <a href="https://opensource.org/license/mit">MIT</a>. The
-        website content is licensed
-        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0//">CC BY NC SA 4.0</a>.
+        <strong>World Cuisine Shop</strong> by <a href="https://github.com/mtemin">Mehmet Emin</a>.
+        This is a test footer
       </p>
     </div>
   </footer>
