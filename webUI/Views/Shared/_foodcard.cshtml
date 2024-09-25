@@ -33,13 +33,20 @@ else
         @Model.Description
       </p>
       <p class="is-size-5 has-text-weight-bold mb-5">@Model.Price @moneyUnit</p>
-      <form class="" method="POST" asp-controller="foods" asp-action="Delete" asp-route-id="@Model.FoodId">
-        <input type="hidden" name="FoodId" value="@Model.FoodId">
-        <button type="submit" class="button is-danger mb-2 is-fullwidth">Delete</button>
-      </form>
-      <a asp-controller="foods" asp-action="edit" asp-route-id="@Model.FoodId"
-        class="button is-info has-text-black mt-auto is-fullwidth"> Edit
-      </a>
+
+
     </div>
+
   </div>
+  <footer class="card-footer mt-auto" style="border:0;">
+    <a asp-controller="foods" asp-action="edit" asp-route-id="@Model.FoodId"
+      class="card-footer-item py-1 mr-3 button is-info"> Edit
+    </a>
+    <form class="button is-danger card-footer-item py-1  " method="POST" asp-controller="foods" asp-action="Delete"
+      asp-route-id="@Model.FoodId">
+      <input type="hidden" name="FoodId" value="@Model.FoodId">
+      <button type="submit" class=" is-fullwidth">Delete</button>
+    </form>
+
+  </footer>
 </div>
