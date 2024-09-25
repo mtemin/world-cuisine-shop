@@ -22,7 +22,7 @@ You have a message!
 
   @foreach (var food in Model.Foods)
   {
-    @await Html.PartialAsync("_foodlist", food)
+    @await Html.PartialAsync("_foodcard", food)
   }
 </div>
 
